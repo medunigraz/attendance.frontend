@@ -1,0 +1,31 @@
+// @green-light: #51AE32;
+// @green-dark: #007B3C;
+// @gray-dark: #313131;
+// @gray-light: #4A4A4A;
+
+// @primary-color: @green-dark;
+// @body-background: @gray-dark;
+// @layout-header-background: @gray-dark;
+// @layout-sider-background: @gray-dark;
+// @menu-dark-bg: @gray-dark;
+// @menu-dark-submenu-bg: @gray-light;
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+@import './palette';
+
+$typography: mat-typography-config(
+  $font-family: 'Roboto',
+  $headline: mat-typography-level(52px, 60px, 700)
+);
+
+@include mat-core($typography);
+
+$primary: mat-palette($mug-grey, 700);
+$accent:  mat-palette($mug-green, 800, A100, A400);
+$warn:    mat-palette($mug-orange, 600);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+@include covalent-theme($theme, $typography);

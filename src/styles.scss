@@ -1,0 +1,36 @@
+$roboto-font-path: '~roboto-fontface/fonts';
+
+@import "~roboto-fontface/css/roboto/sass/roboto-fontface-regular.scss";
+@import "./theme.scss";
+
+body {
+  margin: 0;
+  user-select: none;
+}
+td-message {
+  .td-message-label {
+    font-size: 20px;
+  }
+  mat-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+  }
+}
+.pulsate {
+  animation: pulsate 3s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0.1;
+}
+@keyframes pulsate {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+

@@ -1,0 +1,44 @@
+<div class="header"></div>
+<div class="action">
+  <fa-icon [icon]="icon" [@tdHeadshake]="{ value: pulse , params: { duration: 500 }}" *ngFor="let icon of icons"></fa-icon>
+</div>
+<div class="message">
+  <mat-card *ngIf="messages.length > 0" @tdFadeInOut>
+    <mat-card-title>Buchung erfolgreich</mat-card-title>
+    <mat-divider></mat-divider>
+    <td-message [label]="message.text" [color]="message.color" [icon]="message.icon" *ngFor="let message of messages"></td-message>
+  </mat-card>
+  <mat-card *ngIf="messages.length == 0">
+    <mat-card-title>MED UNI CARD</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <fa-icon [icon]="question"></fa-icon>
+          <h4>
+          Bitte legen Sie Ihre <strong>MED UNI CARD</strong> auf das Lesefeld links vom Bildschirm.
+          </h4>
+        </mat-list-item>
+        <mat-list-item>
+          <fa-icon [icon]="question"></fa-icon>
+          <h4>
+          Please place your <strong> MED UNI CARD</strong> on the reading field to the left of the screen.
+          </h4>
+        </mat-list-item>
+      </mat-list>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="footer">
+  <mat-chip-list>
+    <ng-container *ngIf="debug">
+      <mat-chip [selected]="state.value" *ngFor="let state of ready_states | keyvalue">
+        {{ state.key }}
+      </mat-chip>
+    </ng-container>
+    <mat-chip (click)="debugEnable()">
+      {{ time | date:'medium'}}
+    </mat-chip>
+  </mat-chip-list>
+</div>
